@@ -30,14 +30,14 @@ extern uint16_t recv(SOCKET s, uint8_t * buf, uint16_t len);    // Receive data 
 extern void disconnect(SOCKET s);
 extern uint16_t send(SOCKET s, const uint8_t * buf, uint16_t len); // Send data (TCP)
 extern uint8_t connect(SOCKET s, String addr, uint16_t port); 
+extern uint16_t sendto(SOCKET s, const uint8_t * buf, uint16_t len, uint8_t * addr, uint16_t port); // Send data (UDP/IP RAW)
+extern uint16_t recvfrom(SOCKET s, uint8_t *buf, uint16_t len, uint8_t *addr, uint16_t *port); // Receive data (UDP/IP RAW)
 
 #if 0
 extern uint8_t connect(SOCKET s, uint8_t * addr, uint16_t port); // Establish TCP connection (Active connection)
 extern void disconnect(SOCKET s); // disconnect the connection
 extern uint16_t send(SOCKET s, const uint8_t * buf, uint16_t len); // Send data (TCP)
 extern uint16_t peek(SOCKET s, uint8_t *buf);
-extern uint16_t sendto(SOCKET s, const uint8_t * buf, uint16_t len, uint8_t * addr, uint16_t port); // Send data (UDP/IP RAW)
-extern uint16_t recvfrom(SOCKET s, uint8_t * buf, uint16_t len, uint8_t * addr, uint16_t *port); // Receive data (UDP/IP RAW)
 
 extern uint16_t igmpsend(SOCKET s, const uint8_t * buf, uint16_t len);
 #endif

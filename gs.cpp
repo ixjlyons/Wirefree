@@ -30,25 +30,27 @@ GSClass GS;
 /*
  * Command table definitions
  */
-prog_char cmd_0[] PROGMEM = "ATE0";
-prog_char cmd_1[] PROGMEM = "AT+WWPA=";
-prog_char cmd_2[] PROGMEM = "AT+WA=";
-prog_char cmd_3[] PROGMEM = "AT+NDHCP=0";
-prog_char cmd_4[] PROGMEM = "AT+NDHCP=1";
-prog_char cmd_5[] PROGMEM = "AT+WD";
-prog_char cmd_6[] PROGMEM = "AT+NSTCP=80";
-prog_char cmd_7[] PROGMEM = "AT+NCTCP=";
-prog_char cmd_8[] PROGMEM = "AT+NMAC=?";
-prog_char cmd_9[] PROGMEM = "AT+DNSLOOKUP=";
-prog_char cmd_10[] PROGMEM = "AT+NCLOSE=";
-prog_char cmd_11[] PROGMEM = "AT+NSET=";
-prog_char cmd_12[] PROGMEM = "AT+WM=2";
-prog_char cmd_13[] PROGMEM = "AT+DHCPSRVR=1";
+prog_char cmd_0[] PROGMEM = "ATE0";            // disable echo
+prog_char cmd_1[] PROGMEM = "AT+WWPA=";        // set WPA PSK
+prog_char cmd_2[] PROGMEM = "AT+WA=";          // set SSID
+prog_char cmd_3[] PROGMEM = "AT+NDHCP=0";      // disable DHCP
+prog_char cmd_4[] PROGMEM = "AT+NDHCP=1";      // enable DHCP
+prog_char cmd_5[] PROGMEM = "AT+WD";           // disconnect
+prog_char cmd_6[] PROGMEM = "AT+NSTCP=12345";  // listen (TCP)
+prog_char cmd_7[] PROGMEM = "AT+NCTCP=";       // connect (TCP)
+prog_char cmd_8[] PROGMEM = "AT+NMAC=?";       // get mac address
+prog_char cmd_9[] PROGMEM = "AT+DNSLOOKUP=";   // DNS lookup
+prog_char cmd_10[] PROGMEM = "AT+NCLOSE=";     // close connection
+prog_char cmd_11[] PROGMEM = "AT+NSET=";       // network set
+prog_char cmd_12[] PROGMEM = "AT+WM=2";        // wireless mode
+prog_char cmd_13[] PROGMEM = "AT+DHCPSRVR=1";  // enable DHCP server
+// prog_char cmd_14[] PROGMEM = "AT+NSUDP=12345";
+// prog_char cmd_15[] PROGMEM = "AT+NCUDP=";   
 
 PROGMEM const char *cmd_tbl[] =
 {
 		cmd_0, cmd_1, cmd_2, cmd_3, cmd_4, cmd_5, cmd_6, cmd_7,
-		cmd_8, cmd_9, cmd_10, cmd_11, cmd_12, cmd_13,
+		cmd_8, cmd_9, cmd_10, cmd_11, cmd_12, cmd_13, //cmd_14,
 };
 
 /* Make sure the cmd_buffer is large enough to hold
@@ -89,11 +91,11 @@ char int_to_hex(uint8_t c)
 
 uint8_t GSClass::init(void (*rx_data_hndlr)(String data))
 {
-	Serial.begin(9600);
+	Serial2.begin(9600);
 	delay(1000);
 
 	flush();
-	Serial.println();
+	Serial2.println();
 	delay(1000);
 
 	dev_mode = DEV_OP_MODE_COMMAND;
@@ -140,13 +142,13 @@ uint8_t GSClass::send_cmd(uint8_t cmd)
 	case CMD_WIRELESS_MODE:
 	case CMD_ENABLE_DHCPSVR:
 	{
-		Serial.println(cmd_str);
+		Serial2.println(cmd_str);
 		break;
 	}
 	case CMD_SET_WPA_PSK:
 	{
 		String cmd_buf = cmd_str + this->security_key;
-		Serial.println(cmd_buf);
+		Serial2.println(cmd_buf);
 		break;
 	}
 	case CMD_SET_SSID:
@@ -156,13 +158,13 @@ uint8_t GSClass::send_cmd(uint8_t cmd)
 			cmd_buf = cmd_str + this->ssid;
 		else if (mode == 2)
 			cmd_buf = cmd_str + this->ssid + ",,11";
-		Serial.println(cmd_buf);
+		Serial2.println(cmd_buf);
 		break;
 	}
 	case CMD_TCP_CONN:
 	{
 		String cmd_buf = cmd_str + this->ip + "," + this->port;
-		Serial.println(cmd_buf);
+		Serial2.println(cmd_buf);
 		break;
 	}
 	case CMD_NETWORK_SET:
@@ -173,20 +175,20 @@ uint8_t GSClass::send_cmd(uint8_t cmd)
 		cmd_buf += this->subnet;
 		cmd_buf += ",";
 		cmd_buf += this->gateway;
-		Serial.println(cmd_buf);
+		Serial2.println(cmd_buf);
 		break;
 	}
 	case CMD_DNS_LOOKUP:
 	{
 		String cmd_buf = cmd_str + this->dns_url_ip;
-		Serial.println(cmd_buf);
+		Serial2.println(cmd_buf);
 		break;
 	}
 	case CMD_CLOSE_CONN:
 	{
 		if (this->sock_table[socket_num].status != SOCK_STATUS::CLOSED) {
 			String cmd_buf = cmd_str + String((unsigned int)this->sock_table[socket_num].cid);
-			Serial.println(cmd_buf);
+			Serial2.println(cmd_buf);
 		} else {
 			return 0;
 		}
@@ -422,13 +424,13 @@ String GSClass::readline(void)
 
 	while (!endDetected)
 	{
-		if (Serial.available())
+		if (Serial2.available())
 		{
 			// valid data in HW UART buffer, so check if it's \r or \n
 			// if so, throw away
 			// if strBuf length greater than 0, then this is a true end of line,
 			// so break out
-			inByte = Serial.read();
+			inByte = Serial2.read();
 
 			if ((inByte == '\r') || (inByte == '\n'))
 			{
@@ -454,20 +456,20 @@ uint16_t GSClass::readData(SOCKET s, uint8_t* buf, uint16_t len)
     uint8_t tmp1, tmp2;
 
     if (dev_mode == DEV_OP_MODE_DATA_RX) {
-    if (!Serial.available())
+    if (!Serial2.available())
         return 0;
 
     while(dataLen < len) {
-        if (Serial.available()) {
-            tmp1 = Serial.read();
+        if (Serial2.available()) {
+            tmp1 = Serial2.read();
 
             if (tmp1 == 0x1b) {
                 // escape seq
 
                 /* read in escape sequence */
                 while(1) {
-                    if (Serial.available()) {
-                        tmp2 = Serial.read();
+                    if (Serial2.available()) {
+                        tmp2 = Serial2.read();
                         break;
                     }
                 }
@@ -504,22 +506,22 @@ uint16_t GSClass::writeData(SOCKET s, const uint8_t*  buf, uint16_t  len)
 {	
 	if ((len == 0) || (buf[0] == '\r')){
 	} else {
-		Serial.write((uint8_t)0x1b);    // data start
-		Serial.write((uint8_t)0x53);
-		Serial.write((uint8_t)int_to_hex(this->client_cid));  // connection ID
+		Serial2.write((uint8_t)0x1b);    // data start
+		Serial2.write((uint8_t)0x53);
+		Serial2.write((uint8_t)int_to_hex(this->client_cid));  // connection ID
 		if (len == 1){
 			if (buf[0] != '\r' && buf[0] != '\n'){ 
-				Serial.write(buf[0]);           // data to send
+				Serial2.write(buf[0]);           // data to send
 			} else if (buf[0] == '\n') {
-				Serial.print("\n\r");           // new line
+				Serial2.print("\n\r");           // new line
 			} 
 		} else {
 				String buffer;
 				buffer = (const char *)buf;
-				Serial.print(buffer);
+				Serial2.print(buffer);
 		}
-		Serial.write((uint8_t)0x1b);    // data end
-		Serial.write((uint8_t)0x45);		
+		Serial2.write((uint8_t)0x1b);    // data end
+		Serial2.write((uint8_t)0x45);		
 	}
 	delay(10);
 
@@ -532,14 +534,14 @@ void GSClass::process()
     char inByte;
     uint8_t processDone = 0;
 
-    if (!Serial.available())
+    if (!Serial2.available())
         return;
 
     while (!processDone) {
         if (dev_mode == DEV_OP_MODE_COMMAND) {
             while (1) {
-                if (Serial.available()) {
-                    inByte = Serial.read();
+                if (Serial2.available()) {
+                    inByte = Serial2.read();
 
                     if (inByte == 0x1b) {
                         // escape seq
@@ -570,16 +572,16 @@ void GSClass::process()
             /* data mode */
             while(1) {
 				//digitalWrite(5, LOW);
-                if (Serial.available()) {
-                    inByte = Serial.read();
+                if (Serial2.available()) {
+                    inByte = Serial2.read();
 
                     if (inByte == 0x53) {
                         /* data start, switch to data RX mode */
                         dev_mode = DEV_OP_MODE_DATA_RX;
                         /* read in CID */
                         while(1) {
-                            if (Serial.available()) {
-                                inByte = Serial.read();
+                            if (Serial2.available()) {
+                                inByte = Serial2.read();
 								
                                 break;
                             }
@@ -733,14 +735,14 @@ uint8_t GSClass::isDataOnSock(SOCKET s)
 
 void GSClass::flush()
 {
-	// arduino-1.0 repurposed the Serial.flush() command
+	// arduino-1.0 repurposed the Serial2.flush() command
 	// to wait for outgoing data to be transmitted, not to
 	// clear the buffer
 	// since we need to clear the buffer, need to create this
 	// workaround
-	while (Serial.available())
+	while (Serial2.available())
 	{
-		Serial.read();
+		Serial2.read();
 	}
 }
 

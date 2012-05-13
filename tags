@@ -1,0 +1,186 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ADHOC_MODE	Wirefree.h	43;"	d
+AP_MODE	Wirefree.h	44;"	d
+ARETTYPE	global.h	26;"	d
+ARETTYPE	global.h	29;"	d
+CLOSED	gs.h	/^  static const uint8_t CLOSED      = 0x00;$/;"	m	class:SOCK_STATUS
+CLOSE_WAIT	gs.h	/^  static const uint8_t CLOSE_WAIT  = 0x04;$/;"	m	class:SOCK_STATUS
+CMD_CLOSE_CONN	gs.h	57;"	d
+CMD_DISABLE_DHCP	gs.h	52;"	d
+CMD_DISABLE_ECHO	gs.h	45;"	d
+CMD_DISCONNECT	gs.h	49;"	d
+CMD_DNS_LOOKUP	gs.h	56;"	d
+CMD_ENABLE_DHCP	gs.h	53;"	d
+CMD_ENABLE_DHCPSVR	gs.h	60;"	d
+CMD_GET_MAC_ADDR	gs.h	50;"	d
+CMD_LISTEN	gs.h	54;"	d
+CMD_NETWORK_SET	gs.h	58;"	d
+CMD_SET_SSID	gs.h	48;"	d
+CMD_SET_WPA_PSK	gs.h	47;"	d
+CMD_TCP_CONN	gs.h	55;"	d
+CMD_WIRELESS_MODE	gs.h	59;"	d
+DEV_CONN_ST_CONNECTED	gs.h	69;"	d
+DEV_CONN_ST_DISCONNECTED	gs.h	68;"	d
+DEV_OP_MODE_COMMAND	gs.h	63;"	d
+DEV_OP_MODE_DATA	gs.h	64;"	d
+DEV_OP_MODE_DATA_RX	gs.h	65;"	d
+ESTABLISHED	gs.h	/^  static const uint8_t ESTABLISHED = 0x03;$/;"	m	class:SOCK_STATUS
+GS	gs.cpp	/^GSClass GS;$/;"	v
+GSClass	gs.h	/^class GSClass {$/;"	c
+GS_PROFILE	gs.h	/^} GS_PROFILE;$/;"	t	typeref:struct:_GS_PROFILE
+INIT	gs.h	/^  static const uint8_t INIT        = 0x01;$/;"	m	class:SOCK_STATUS
+INVALID_CID	gs.h	72;"	d
+IPPROTO	gs.h	/^class IPPROTO {$/;"	c
+LED_BLUE	Wirefree.h	33;"	d
+LED_CYAN	Wirefree.h	36;"	d
+LED_GREEN	Wirefree.h	34;"	d
+LED_MAGENTA	Wirefree.h	37;"	d
+LED_OFF	Wirefree.h	40;"	d
+LED_RED	Wirefree.h	35;"	d
+LED_WHITE	Wirefree.h	39;"	d
+LED_YELLOW	Wirefree.h	38;"	d
+LISTEN	gs.h	/^  static const uint8_t LISTEN      = 0x02;$/;"	m	class:SOCK_STATUS
+MAX_SOCK_NUM	Wirefree.h	30;"	d
+NORMAL_MODE	Wirefree.h	42;"	d
+PROGMEM	gs.cpp	/^prog_char cmd_0[] PROGMEM = "ATE0";$/;"	v
+PROGMEM	gs.cpp	/^prog_char cmd_10[] PROGMEM = "AT+NCLOSE=";$/;"	v
+PROGMEM	gs.cpp	/^prog_char cmd_11[] PROGMEM = "AT+NSET=";$/;"	v
+PROGMEM	gs.cpp	/^prog_char cmd_12[] PROGMEM = "AT+WM=2";$/;"	v
+PROGMEM	gs.cpp	/^prog_char cmd_13[] PROGMEM = "AT+DHCPSRVR=1";$/;"	v
+PROGMEM	gs.cpp	/^prog_char cmd_1[] PROGMEM = "AT+WWPA=";$/;"	v
+PROGMEM	gs.cpp	/^prog_char cmd_2[] PROGMEM = "AT+WA=";$/;"	v
+PROGMEM	gs.cpp	/^prog_char cmd_3[] PROGMEM = "AT+NDHCP=0";$/;"	v
+PROGMEM	gs.cpp	/^prog_char cmd_4[] PROGMEM = "AT+NDHCP=1";$/;"	v
+PROGMEM	gs.cpp	/^prog_char cmd_5[] PROGMEM = "AT+WD";$/;"	v
+PROGMEM	gs.cpp	/^prog_char cmd_6[] PROGMEM = "AT+NSTCP=80";$/;"	v
+PROGMEM	gs.cpp	/^prog_char cmd_7[] PROGMEM = "AT+NCTCP=";$/;"	v
+PROGMEM	gs.cpp	/^prog_char cmd_8[] PROGMEM = "AT+NMAC=?";$/;"	v
+PROGMEM	gs.cpp	/^prog_char cmd_9[] PROGMEM = "AT+DNSLOOKUP=";$/;"	v
+SOCKET	gs.h	/^typedef uint8_t SOCKET;$/;"	t
+SOCK_STATUS	gs.h	/^class SOCK_STATUS {$/;"	c
+SOCK_TABLE	gs.h	/^} SOCK_TABLE;$/;"	t	typeref:struct:_SOCK_TABLE
+SSIZE	gs.h	/^	static const uint16_t SSIZE = 256; \/\/ Max Tx buffer siz$/;"	m	class:GSClass
+TCP	gs.h	/^  static const uint8_t TCP  = 6;$/;"	m	class:IPPROTO
+WIFI_PROFILE	Wirefree.h	/^} WIFI_PROFILE;$/;"	t	typeref:struct:_WIFI_PROFILE
+WifiClient	WifiClient.cpp	/^WifiClient::WifiClient(String ip, uint16_t port) : _ip(ip), _port(port), _sock(MAX_SOCK_NUM) {$/;"	f	class:WifiClient
+WifiClient	WifiClient.cpp	/^WifiClient::WifiClient(uint8_t sock) : _sock(sock) {$/;"	f	class:WifiClient
+WifiClient	WifiClient.h	/^class WifiClient : public Stream {$/;"	c
+WifiServer	WifiServer.cpp	/^WifiServer::WifiServer(uint16_t port)$/;"	f	class:WifiServer
+WifiServer	WifiServer.h	/^class WifiServer : $/;"	c
+Wirefree	Wirefree.h	/^class Wirefree {$/;"	c
+Wireless	Wirefree.cpp	/^Wirefree Wireless;$/;"	v
+_GS_PROFILE	gs.h	/^typedef struct _GS_PROFILE {$/;"	s
+_SOCK_TABLE	gs.h	/^typedef struct _SOCK_TABLE {$/;"	s
+_WIFI_PROFILE	Wirefree.h	/^typedef struct _WIFI_PROFILE {$/;"	s
+_global_h_	global.h	22;"	d
+_gs_h_	gs.h	22;"	d
+_ip	WifiClient.h	/^	String _ip;$/;"	m	class:WifiClient
+_port	WifiClient.h	/^  uint16_t _port;$/;"	m	class:WifiClient
+_port	WifiServer.h	/^  uint16_t _port;$/;"	m	class:WifiServer
+_server_port	Wirefree.cpp	/^uint16_t Wirefree::_server_port[MAX_SOCK_NUM] = {$/;"	m	class:Wirefree	file:
+_server_port	Wirefree.h	/^  static uint16_t _server_port[MAX_SOCK_NUM];$/;"	m	class:Wirefree
+_sock	WifiClient.h	/^  uint8_t _sock;$/;"	m	class:WifiClient
+_socket_h_	socket.h	22;"	d
+_srcport	WifiClient.cpp	/^uint16_t WifiClient::_srcport = 1024;$/;"	m	class:WifiClient	file:
+_srcport	WifiClient.h	/^  static uint16_t _srcport;$/;"	m	class:WifiClient
+_wifi_client_h_	WifiClient.h	22;"	d
+_wifi_server_h_	WifiServer.h	22;"	d
+_wirefree_h_	Wirefree.h	22;"	d
+accept	WifiServer.cpp	/^void WifiServer::accept()$/;"	f	class:WifiServer
+available	WifiClient.cpp	/^int WifiClient::available() {$/;"	f	class:WifiClient
+available	WifiServer.cpp	/^WifiClient WifiServer::available()$/;"	f	class:WifiServer
+begin	WifiServer.cpp	/^void WifiServer::begin()$/;"	f	class:WifiServer
+begin	Wirefree.cpp	/^void Wirefree::begin(WIFI_PROFILE* w_prof, void (*rxDataHndlr)(String data))$/;"	f	class:Wirefree
+begin	Wirefree.cpp	/^void Wirefree::begin(WIFI_PROFILE* w_prof, void (*rxDataHndlr)(String data), uint8_t mode)$/;"	f	class:Wirefree
+cid	gs.h	/^	uint8_t cid;$/;"	m	struct:_SOCK_TABLE
+client_cid	gs.h	/^	uint8_t client_cid;$/;"	m	class:GSClass
+close	socket.cpp	/^void close(SOCKET s)$/;"	f
+cmd_buffer	gs.cpp	/^char cmd_buffer[16];$/;"	v
+cmd_tbl	gs.cpp	/^PROGMEM const char *cmd_tbl[] =$/;"	v
+configSocket	gs.cpp	/^void GSClass::configSocket(SOCKET s, uint8_t protocol, uint16_t port)$/;"	f	class:GSClass
+configure	gs.cpp	/^void GSClass::configure(GS_PROFILE *prof)$/;"	f	class:GSClass
+connect	WifiClient.cpp	/^uint8_t WifiClient::connect() {$/;"	f	class:WifiClient
+connect	gs.cpp	/^uint8_t GSClass::connect()$/;"	f	class:GSClass
+connect	socket.cpp	/^uint8_t connect(SOCKET s, String addr, uint16_t port)$/;"	f
+connect_socket	gs.cpp	/^uint8_t GSClass::connect_socket(String ip, String port)$/;"	f	class:GSClass
+connected	WifiClient.cpp	/^uint8_t WifiClient::connected() {$/;"	f	class:WifiClient
+connected	Wirefree.cpp	/^uint8_t Wirefree::connected()$/;"	f	class:Wirefree
+connected	gs.cpp	/^uint8_t GSClass::connected()$/;"	f	class:GSClass
+connection_state	gs.h	/^	uint8_t connection_state;$/;"	m	class:GSClass
+dataOnSock	gs.h	/^	SOCKET dataOnSock;$/;"	m	class:GSClass
+dev_id	gs.h	/^	String dev_id;$/;"	m	class:GSClass
+dev_mode	gs.h	/^	uint8_t dev_mode;$/;"	m	class:GSClass
+disconnect	socket.cpp	/^void disconnect(SOCKET s)$/;"	f
+dns_lookup	gs.cpp	/^String GSClass::dns_lookup(String url)$/;"	f	class:GSClass
+dns_url_ip	gs.h	/^	String dns_url_ip;$/;"	m	class:GSClass
+execSocketCmd	gs.cpp	/^void GSClass::execSocketCmd(SOCKET s, uint8_t cmd)$/;"	f	class:GSClass
+flush	WifiClient.cpp	/^void WifiClient::flush() {$/;"	f	class:WifiClient
+flush	gs.cpp	/^void GSClass::flush()$/;"	f	class:GSClass
+gateway	Wirefree.h	/^	String gateway;$/;"	m	struct:_WIFI_PROFILE
+gateway	gs.h	/^	String gateway;$/;"	m	class:GSClass
+gateway	gs.h	/^	String gateway;$/;"	m	struct:_GS_PROFILE
+get_dev_id	gs.cpp	/^String GSClass::get_dev_id()$/;"	f	class:GSClass
+hex_to_int	gs.cpp	/^uint8_t hex_to_int(char c)$/;"	f
+init	gs.cpp	/^uint8_t GSClass::init(void (*rx_data_hndlr)(String data))$/;"	f	class:GSClass
+initLED	Wirefree.cpp	/^void Wirefree::initLED()$/;"	f	class:Wirefree
+int_to_hex	gs.cpp	/^char int_to_hex(uint8_t c)$/;"	f
+ip	Wirefree.h	/^	String ip;$/;"	m	struct:_WIFI_PROFILE
+ip	gs.h	/^	String ip;$/;"	m	class:GSClass
+ip	gs.h	/^	String ip;$/;"	m	struct:_GS_PROFILE
+isDataOnSock	gs.cpp	/^uint8_t GSClass::isDataOnSock(SOCKET s)$/;"	f	class:GSClass
+listen	socket.cpp	/^uint8_t listen(SOCKET s)$/;"	f
+local_ip	gs.h	/^	String local_ip;$/;"	m	class:GSClass
+local_port	socket.cpp	/^static uint16_t local_port;$/;"	v	file:
+mode	gs.h	/^	uint8_t mode;$/;"	m	class:GSClass
+operator bool	WifiClient.cpp	/^WifiClient::operator bool() {$/;"	f	class:WifiClient
+parse_cmd	gs.cpp	/^void GSClass::parse_cmd(String buf)$/;"	f	class:GSClass
+parse_data	gs.cpp	/^void GSClass::parse_data(String buf)$/;"	f	class:GSClass
+parse_resp	gs.cpp	/^uint8_t GSClass::parse_resp(uint8_t cmd)$/;"	f	class:GSClass
+peek	WifiClient.cpp	/^int WifiClient::peek() {$/;"	f	class:WifiClient
+port	gs.h	/^	String port;$/;"	m	class:GSClass
+port	gs.h	/^	uint16_t port;$/;"	m	struct:_SOCK_TABLE
+process	Wirefree.cpp	/^void Wirefree::process()$/;"	f	class:Wirefree
+process	gs.cpp	/^void GSClass::process()$/;"	f	class:GSClass
+protocol	gs.h	/^	uint8_t protocol;$/;"	m	struct:_SOCK_TABLE
+read	WifiClient.cpp	/^int WifiClient::read() {$/;"	f	class:WifiClient
+readData	gs.cpp	/^uint16_t GSClass::readData(SOCKET s, uint8_t* buf, uint16_t len)$/;"	f	class:GSClass
+readSocketStatus	gs.cpp	/^uint8_t GSClass::readSocketStatus(SOCKET s)$/;"	f	class:GSClass
+readline	gs.cpp	/^String GSClass::readline(void)$/;"	f	class:GSClass
+recv	socket.cpp	/^uint16_t recv(SOCKET s, uint8_t *buf, uint16_t len)$/;"	f
+rx_data_handler	gs.h	/^	void (*rx_data_handler)(String data);$/;"	m	class:GSClass
+security_key	Wirefree.h	/^	String security_key;$/;"	m	struct:_WIFI_PROFILE
+security_key	gs.h	/^	String security_key;$/;"	m	class:GSClass
+security_key	gs.h	/^	String security_key;$/;"	m	struct:_GS_PROFILE
+send	socket.cpp	/^uint16_t send(SOCKET s, const uint8_t * buf, uint16_t len)$/;"	f
+sendDeviceID	Wirefree.cpp	/^void Wirefree::sendDeviceID()$/;"	f	class:Wirefree
+sendResponse	Wirefree.cpp	/^void Wirefree::sendResponse(String data)$/;"	f	class:Wirefree
+send_cmd	gs.cpp	/^uint8_t GSClass::send_cmd(uint8_t cmd)$/;"	f	class:GSClass
+send_cmd_w_resp	gs.cpp	/^uint8_t GSClass::send_cmd_w_resp(uint8_t cmd)$/;"	f	class:GSClass
+serv_cid	gs.h	/^	uint8_t serv_cid;$/;"	m	class:GSClass
+setLED	Wirefree.cpp	/^void Wirefree::setLED(int color)$/;"	f	class:Wirefree
+sock_table	gs.h	/^	SOCK_TABLE sock_table[4];$/;"	m	class:GSClass
+socket	socket.cpp	/^uint8_t socket(SOCKET s, uint8_t protocol, uint16_t port, uint8_t flag)$/;"	f
+socketOpen	Wirefree.cpp	/^uint8_t Wirefree::socketOpen(String url, String port)$/;"	f	class:Wirefree
+socket_num	gs.h	/^	uint8_t socket_num;$/;"	m	class:GSClass
+ssid	Wirefree.h	/^	String ssid;$/;"	m	struct:_WIFI_PROFILE
+ssid	gs.h	/^	String ssid;$/;"	m	class:GSClass
+ssid	gs.h	/^	String ssid;$/;"	m	struct:_GS_PROFILE
+status	WifiClient.cpp	/^uint8_t WifiClient::status() {$/;"	f	class:WifiClient
+status	gs.h	/^	uint8_t status;$/;"	m	struct:_SOCK_TABLE
+stop	WifiClient.cpp	/^void WifiClient::stop() {$/;"	f	class:WifiClient
+subnet	Wirefree.h	/^	String subnet;$/;"	m	struct:_WIFI_PROFILE
+subnet	gs.h	/^	String subnet;$/;"	m	class:GSClass
+subnet	gs.h	/^	String subnet;$/;"	m	struct:_GS_PROFILE
+tx_done	gs.h	/^	uint8_t tx_done;$/;"	m	class:GSClass
+write	WifiClient.cpp	/^ARETTYPE WifiClient::write(const char *str) {$/;"	f	class:WifiClient
+write	WifiClient.cpp	/^ARETTYPE WifiClient::write(const uint8_t *buf, size_t size) {$/;"	f	class:WifiClient
+write	WifiClient.cpp	/^ARETTYPE WifiClient::write(uint8_t b) {$/;"	f	class:WifiClient
+write	WifiServer.cpp	/^ARETTYPE WifiServer::write(const char *str)$/;"	f	class:WifiServer
+write	WifiServer.cpp	/^ARETTYPE WifiServer::write(const uint8_t *buffer, size_t size)$/;"	f	class:WifiServer
+write	WifiServer.cpp	/^ARETTYPE WifiServer::write(uint8_t b)$/;"	f	class:WifiServer
+writeData	gs.cpp	/^uint16_t GSClass::writeData(SOCKET s, const uint8_t*  buf, uint16_t  len)$/;"	f	class:GSClass

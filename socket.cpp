@@ -104,6 +104,14 @@ uint16_t send(SOCKET s, const uint8_t * buf, uint16_t len)
 	return ret;
 }
 
+uint16_t sendto(SOCKET s, const uint8_t *buf, uint16_t len, uint8_t *addr, uint16_t port) {
+    return 0;
+}
+
+uint16_t recvfrom(SOCKET s, uint8_t *buf, uint16_t len, uint8_t *addr, uint16_t * port) {
+    return 0;
+}
+
 /**
  * @brief	This function established  the connection for the channel in Active (client) mode. 
  * 		This function waits for the untill the connection is established.

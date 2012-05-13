@@ -37,7 +37,8 @@ public:
 
 class IPPROTO {
 public:
-  static const uint8_t TCP  = 6;
+  static const uint8_t TCP = 6;
+  static const uint8_t UDP = 17;
 };
 
 // command identifiers
@@ -58,6 +59,8 @@ public:
 #define CMD_NETWORK_SET  11
 #define CMD_WIRELESS_MODE 12
 #define CMD_ENABLE_DHCPSVR 13
+//#define CMD_LISTEN_UDP 14
+//#define CMD_UDP_CONN 15
 
 // device operation modes
 #define DEV_OP_MODE_COMMAND 0
